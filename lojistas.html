@@ -353,9 +353,6 @@
         </div>
 
         <h2 data-lang-pt="Itens Adicionais" data-lang-en="Additional Items" data-lang-it="Articoli Aggiuntivi">Itens Adicionais</h2>
-        <div style="margin-bottom: 20px;">
-            <button type="button" class="add-item-btn" onclick="addItemManual()" data-lang-pt="Adicionar Item Manual" data-lang-en="Add Manual Item" data-lang-it="Aggiungi Articolo Manuale">Adicionar Item Manual</button>
-        </div>
         <div id="itensContainer">
             <!-- Os itens manuais serão gerados dinamicamente aqui -->
         </div>
@@ -367,6 +364,15 @@
         </div>
         <div id="briseItensContainer">
             <!-- Os itens BRISE serão gerados dinamicamente aqui -->
+        </div>
+
+        <h2 data-lang-pt="Itens Extras" data-lang-en="Extra Items" data-lang-it="Articoli Extra">Itens Extras</h2>
+        <div class="form-group">
+            <label for="numeroItensExtras" data-lang-pt="Número de Itens Extras:" data-lang-en="Number of Extra Items:" data-lang-it="Numero di Articoli Extra:">Número de Itens Extras:</label>
+            <input type="number" id="numeroItensExtras" name="numeroItensExtras" min="0" value="0" onchange="atualizarItensExtras()">
+        </div>
+        <div id="itensExtrasContainer">
+            <!-- Os itens extras serão gerados dinamicamente aqui -->
         </div>
 
         <div class="summary-section">
