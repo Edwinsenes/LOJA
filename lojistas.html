@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
             min-height: 100vh;
             padding: 20px;
             color: #333;
@@ -37,7 +37,7 @@
             font-weight: 700;
             margin-bottom: 40px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #9e9e9e, #757575);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -60,7 +60,7 @@
             left: 0;
             width: 50px;
             height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
         }
         
         .form-group {
@@ -96,8 +96,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
             transform: translateY(-2px);
         }
         
@@ -127,7 +127,7 @@
         }
         
         .download-btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, #9e9e9e, #757575);
             color: white;
             padding: 16px 32px;
             border: none;
@@ -139,14 +139,14 @@
             font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(158, 158, 158, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 6px 20px rgba(158, 158, 158, 0.4);
         }
         
         .porta-section, .item-section {
@@ -168,7 +168,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
         }
         
         .porta-section:hover, .item-section:hover {
@@ -193,13 +193,30 @@
             margin-bottom: 20px;
         }
         
-        .item-section {
-            border-color: #27ae60;
-            background: linear-gradient(135deg, rgba(46, 204, 113, 0.05), rgba(39, 174, 96, 0.05));
+        .brise-item-section {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.05), rgba(230, 126, 34, 0.05));
         }
         
-        .item-section::before {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        .brise-item-section::before {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .brise-item-section h3 {
+            color: #e67e22;
+        }
+        
+        .extra-item-section {
+            border-color: #9e9e9e;
+            background: linear-gradient(135deg, rgba(158, 158, 158, 0.05), rgba(117, 117, 117, 0.05));
+        }
+        
+        .extra-item-section::before {
+            background: linear-gradient(135deg, #9e9e9e, #757575);
+        }
+        
+        .extra-item-section h3 {
+            color: #757575;
         }
         
         .remove-item-btn {
@@ -221,19 +238,6 @@
         .remove-item-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
-        }
-        
-        .brise-item-section {
-            border-color: #f39c12;
-            background: linear-gradient(135deg, rgba(243, 156, 18, 0.05), rgba(230, 126, 34, 0.05));
-        }
-        
-        .brise-item-section::before {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-        }
-        
-        .brise-item-section h3 {
-            color: #e67e22;
         }
         
         .summary-section {
@@ -310,8 +314,8 @@
         
         .language-selector select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
         }
     </style>
 </head>
@@ -339,7 +343,7 @@
 
         <div class="form-group">
             <label for="pedido" data-lang-pt="Número do Pedido:" data-lang-en="Order Number:" data-lang-it="Numero dell'Ordine:">Número do Pedido:</label>
-            <input type="text" id="pedido" name="pedido">
+            <input type="text" id="pedido" name="pedido" readonly style="background-color: #f8f9fa;">
         </div>
 
         <div class="form-group">
@@ -352,24 +356,17 @@
             <!-- As portas serão geradas dinamicamente aqui -->
         </div>
 
-        <h2 data-lang-pt="Itens Adicionais" data-lang-en="Additional Items" data-lang-it="Articoli Aggiuntivi">Itens Adicionais</h2>
-        <div id="itensContainer">
-            <!-- Os itens manuais serão gerados dinamicamente aqui -->
-        </div>
-
-        <h2 data-lang-pt="Itens BRISE" data-lang-en="BRISE Items" data-lang-it="Articoli BRISE">Itens BRISE</h2>
+        <h2 data-lang-pt="BRISE" data-lang-en="BRISE" data-lang-it="BRISE">BRISE</h2>
         <div class="form-group">
-            <label for="numeroBrise" data-lang-pt="Número de BRISE:" data-lang-en="Number of BRISE:" data-lang-it="Numero di BRISE:">Número de BRISE:</label>
-            <input type="number" id="numeroBrise" name="numeroBrise" min="0" value="0" onchange="atualizarBrise()">
+            <label data-lang-pt="Número de BRISE:" data-lang-en="Number of BRISE:" data-lang-it="Numero di BRISE:">Número de BRISE:</label>
+            <input type="number" id="numeroBrise" min="0" value="0" oninput="atualizarBrise()">
         </div>
-        <div id="briseItensContainer">
-            <!-- Os itens BRISE serão gerados dinamicamente aqui -->
-        </div>
+        <div id="briseItensContainer"></div>
 
-        <h2 data-lang-pt="Itens Extras" data-lang-en="Extra Items" data-lang-it="Articoli Extra">Itens Extras</h2>
+        <h2 data-lang-pt="EXTRAS" data-lang-en="EXTRAS" data-lang-it="EXTRAS">EXTRAS</h2>
         <div class="form-group">
-            <label for="numeroItensExtras" data-lang-pt="Número de Itens Extras:" data-lang-en="Number of Extra Items:" data-lang-it="Numero di Articoli Extra:">Número de Itens Extras:</label>
-            <input type="number" id="numeroItensExtras" name="numeroItensExtras" min="0" value="0" onchange="atualizarItensExtras()">
+            <label data-lang-pt="Número de Itens Extras:" data-lang-en="Number of Extra Items:" data-lang-it="Numero di Articoli Extra:">Número de Itens Extras:</label>
+            <input type="number" id="numeroItensExtras" min="0" value="0" oninput="atualizarItensExtras()">
         </div>
         <div id="itensExtrasContainer">
             <!-- Os itens extras serão gerados dinamicamente aqui -->
@@ -397,13 +394,13 @@
                 orderNumber: "Número do Pedido:",
                 numberOfDoors: "Número de Portas:",
                 doorDetails: "Detalhes das Portas",
-                additionalItems: "Itens Adicionais",
-                briseItems: "Itens BRISE",
+                briseItems: "BRISE",
                 numberOfBrise: "Número de BRISE:",
+                extraItems: "EXTRAS",
+                numberOfExtraItems: "Número de Itens Extras:",
                 budgetSummary: "Resumo do Orçamento",
                 grandTotal: "Total Geral:",
                 downloadPDF: "Baixar Orçamento (PDF)",
-                addManualItem: "Adicionar Item Manual",
                 door: "Porta",
                 description: "Descrição:",
                 openingType: "Tipo de Abertura:",
@@ -413,9 +410,11 @@
                 quantity: "Quantidade:",
                 totalPrice: "Preço Total (R$):",
                 m2: "M²:",
+                value: "Valor (R$):",
+                type: "Tipo:",
                 item: "Item",
                 brise: "BRISE",
-                remove: "Remover",
+                extraItem: "Item Extra",
                 select: "Selecione",
                 pivoting: "PIVOTANTE",
                 hinge: "DOBRADIÇA",
@@ -425,7 +424,10 @@
                 enterObservations: "Digite observações específicas para esta porta...",
                 enterDescription: "Digite a descrição do item",
                 briseObservations: "Observações para o BRISE",
-                briseColor: "Digite a cor do BRISE"
+                itemType: "Tipo de Item:",
+                itemTypePlaceholder: "Digite o tipo do item extra",
+                price: "Preço (R$):",
+                extraItemObservationsPlaceholder: "Observações para o item extra"
             },
             en: {
                 title: "ACM Door Budget",
@@ -434,13 +436,13 @@
                 orderNumber: "Order Number:",
                 numberOfDoors: "Number of Doors:",
                 doorDetails: "Door Details",
-                additionalItems: "Additional Items",
-                briseItems: "BRISE Items",
+                briseItems: "BRISE",
                 numberOfBrise: "Number of BRISE:",
+                extraItems: "EXTRAS",
+                numberOfExtraItems: "Number of Extra Items:",
                 budgetSummary: "Budget Summary",
                 grandTotal: "Grand Total:",
                 downloadPDF: "Download Budget (PDF)",
-                addManualItem: "Add Manual Item",
                 door: "Door",
                 description: "Description:",
                 openingType: "Opening Type:",
@@ -450,9 +452,11 @@
                 quantity: "Quantity:",
                 totalPrice: "Total Price ($):",
                 m2: "M²:",
+                value: "Value ($):",
+                type: "Type:",
                 item: "Item",
                 brise: "BRISE",
-                remove: "Remove",
+                extraItem: "Extra Item",
                 select: "Select",
                 pivoting: "PIVOTING",
                 hinge: "HINGE",
@@ -462,7 +466,10 @@
                 enterObservations: "Enter specific observations for this door...",
                 enterDescription: "Enter item description",
                 briseObservations: "BRISE observations",
-                briseColor: "Enter BRISE color"
+                itemType: "Item Type:",
+                itemTypePlaceholder: "Enter extra item type",
+                price: "Price ($):",
+                extraItemObservationsPlaceholder: "Extra item observations"
             },
             it: {
                 title: "Preventivo Porte ACM",
@@ -471,13 +478,13 @@
                 orderNumber: "Numero dell'Ordine:",
                 numberOfDoors: "Numero di Porte:",
                 doorDetails: "Dettagli delle Porte",
-                additionalItems: "Articoli Aggiuntivi",
-                briseItems: "Articoli BRISE",
+                briseItems: "BRISE",
                 numberOfBrise: "Numero di BRISE:",
+                extraItems: "EXTRAS",
+                numberOfExtraItems: "Numero di Articoli Extra:",
                 budgetSummary: "Riepilogo del Preventivo",
                 grandTotal: "Totale Generale:",
                 downloadPDF: "Scarica Preventivo (PDF)",
-                addManualItem: "Aggiungi Articolo Manuale",
                 door: "Porta",
                 description: "Descrizione:",
                 openingType: "Tipo di Apertura:",
@@ -487,9 +494,11 @@
                 quantity: "Quantità:",
                 totalPrice: "Prezzo Totale (€):",
                 m2: "M²:",
+                value: "Valore (€):",
+                type: "Tipo:",
                 item: "Articolo",
                 brise: "BRISE",
-                remove: "Rimuovi",
+                extraItem: "Articolo Extra",
                 select: "Seleziona",
                 pivoting: "PIVOTANTE",
                 hinge: "CERNIERA",
@@ -499,7 +508,10 @@
                 enterObservations: "Inserisci osservazioni specifiche per questa porta...",
                 enterDescription: "Inserisci descrizione articolo",
                 briseObservations: "Osservazioni BRISE",
-                briseColor: "Inserisci colore BRISE"
+                itemType: "Tipo di Articolo:",
+                itemTypePlaceholder: "Inserisci tipo articolo extra",
+                price: "Prezzo (€):",
+                extraItemObservationsPlaceholder: "Osservazioni articolo extra"
             }
         };
 
@@ -520,9 +532,11 @@
             // Atualizar placeholders
             updatePlaceholders();
             
-            // Regenerar portas e BRISE para aplicar traduções
+            // Regenerar portas, BRISE e extras para aplicar traduções
             atualizarPortas();
             atualizarBrise();
+            atualizarItensExtras();
+            calcularTotalGeral();
         }
 
         function updatePlaceholders() {
@@ -540,9 +554,16 @@
 
         function gerarNumeroPedido() {
             const anoAtual = new Date().getFullYear();
-            const numeroAleatorio = Math.floor(Math.random() * 90000) + 10000;
-            const numeroPedido = `${anoAtual}-${numeroAleatorio}`;
-            document.getElementById("pedido").value = numeroPedido;
+            let ultimoNumero = localStorage.getItem(`ultimoNumeroPedido_${anoAtual}`);
+            
+            if (ultimoNumero === null) {
+                ultimoNumero = 100; // Começa a sequência de 100
+            } else {
+                ultimoNumero = parseInt(ultimoNumero) + 1;
+            }
+            
+            localStorage.setItem(`ultimoNumeroPedido_${anoAtual}`, ultimoNumero);
+            document.getElementById('pedido').value = `${anoAtual}-${ultimoNumero}`;
         }
 
         function atualizarPortas() {
@@ -617,7 +638,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>${lang.color}</label>
-                            <input type="text" class="briseCor" placeholder="${lang.briseColor}" oninput="calcularTotalGeral()">
+                            <input type="text" class="briseCor" placeholder="${lang.enterSpecificColor}" oninput="calcularTotalGeral()">
                         </div>
                         <div class="form-group">
                             <label>${lang.m2}</label>
@@ -626,8 +647,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>${lang.totalPrice}</label>
-                            <input type="number" class="precoTotalBrise" value="0.00" min="0" step="0.01" oninput="calcularTotalGeral()">
+                            <label>${lang.value}</label>
+                            <input type="number" class="briseValor" value="0.00" min="0" step="0.01" oninput="calcularTotalGeral()">
                         </div>
                     </div>
                     <div class="form-group">
@@ -636,6 +657,44 @@
                     </div>
                 `;
                 briseContainer.appendChild(briseSection);
+            }
+            calcularTotalGeral();
+        }
+
+        function atualizarItensExtras() {
+            const numeroItensExtras = parseInt(document.getElementById("numeroItensExtras").value) || 0;
+            const itensExtrasContainer = document.getElementById("itensExtrasContainer");
+            const lang = translations[currentLanguage];
+
+            itensExtrasContainer.innerHTML = "";
+            
+            for (let i = 1; i <= numeroItensExtras; i++) {
+                const extraSection = document.createElement("div");
+                extraSection.className = "item-section extra-item-section";
+                extraSection.innerHTML = `
+                    <h3>${lang.extraItem} ${i}</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>${lang.itemType}</label>
+                            <input type="text" class="extraTipo" placeholder="${lang.itemTypePlaceholder}" oninput="calcularTotalGeral()">
+                        </div>
+                        <div class="form-group">
+                            <label>${lang.quantity}</label>
+                            <input type="number" class="extraQuantidade" value="1" min="1" step="1" oninput="calcularTotalGeral()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>${lang.price}</label>
+                            <input type="number" class="extraValor" value="0.00" min="0" step="0.01" oninput="calcularTotalGeral()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>${lang.observations}</label>
+                        <textarea class="extraObservacoes" placeholder="${lang.extraItemObservationsPlaceholder}"></textarea>
+                    </div>
+                `;
+                itensExtrasContainer.appendChild(extraSection);
             }
             calcularTotalGeral();
         }
@@ -649,57 +708,21 @@
                 totalGeral += preco;
             });
             
-            // Somar preços dos itens manuais
-            document.querySelectorAll(".item-section:not(.brise-item-section)").forEach(section => {
-                const quantidade = parseFloat(section.querySelector(".quantidade").value) || 0;
-                const precoUnitario = parseFloat(section.querySelector(".precoUnitario").value) || 0;
-                const total = quantidade * precoUnitario;
-                totalGeral += total;
-            });
-
             // Somar preços dos itens BRISE
             document.querySelectorAll(".brise-item-section").forEach(section => {
-                const precoTotalBrise = parseFloat(section.querySelector(".precoTotalBrise").value) || 0;
-                totalGeral += precoTotalBrise;
+                const briseValor = parseFloat(section.querySelector(".briseValor").value) || 0;
+                totalGeral += briseValor;
+            });
+
+            // Somar preços dos itens extras (quantidade × valor)
+            document.querySelectorAll(".extra-item-section").forEach(section => {
+                const extraQuantidade = parseFloat(section.querySelector(".extraQuantidade").value) || 0;
+                const extraValor = parseFloat(section.querySelector(".extraValor").value) || 0;
+                totalGeral += (extraQuantidade * extraValor);
             });
             
             const currency = currentLanguage === 'en' ? '$' : currentLanguage === 'it' ? '€' : 'R$';
             document.getElementById("totalGeral").textContent = `${currency} ${totalGeral.toFixed(2).replace(".", ",")}`;
-        }
-
-        function addItemManual() {
-            const itensManuaisContainer = document.getElementById("itensContainer");
-            const newItemIndex = itensManuaisContainer.children.length + 1;
-            const lang = translations[currentLanguage];
-            
-            const itemSection = document.createElement("div");
-            itemSection.className = "item-section";
-            itemSection.innerHTML = `
-                <h3>${lang.item} ${newItemIndex} <button type="button" class="remove-item-btn" onclick="removerItem(this)">${lang.remove}</button></h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>${lang.description}</label>
-                        <input type="text" class="descricao" placeholder="${lang.enterDescription}" oninput="calcularTotalGeral()">
-                    </div>
-                    <div class="form-group">
-                        <label>${lang.quantity}</label>
-                        <input type="number" class="quantidade" value="1" min="1" step="1" oninput="calcularTotalGeral()">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>${lang.unitPrice}</label>
-                        <input type="number" class="precoUnitario" value="0.00" min="0" step="0.01" oninput="calcularTotalGeral()">
-                    </div>
-                </div>
-            `;
-            itensManuaisContainer.appendChild(itemSection);
-            calcularTotalGeral();
-        }
-
-        function removerItem(button) {
-            button.closest(".item-section").remove();
-            calcularTotalGeral();
         }
 
         function gerarPDF() {
@@ -709,9 +732,9 @@
                 const lang = translations[currentLanguage];
                 
                 // Configurações de cores modernas
-                const primaryColor = [102, 126, 234]; // #667eea
+                const primaryColor = [231, 76, 60]; // #e74c3c - vermelho
                 const secondaryColor = [52, 73, 94]; // #34495e
-                const accentColor = [231, 76, 60]; // #e74c3c
+                const accentColor = [158, 158, 158]; // #9e9e9e - cinza
                 const textColor = [44, 62, 80]; // #2c3e50
                 const lightGray = [236, 240, 241]; // #ecf0f1
                 
@@ -758,7 +781,7 @@
                 const numeroPortas = parseInt(document.getElementById("numeroPortas").value) || 0;
                 if (numeroPortas > 0) {
                     // Título da seção
-                    doc.setFillColor(...accentColor);
+                    doc.setFillColor(...primaryColor);
                     doc.rect(20, yPosition, 170, 8, 'F');
                     doc.setTextColor(255, 255, 255);
                     doc.setFont("helvetica", "bold");
@@ -809,65 +832,16 @@
                     });
                 }
                 
-                // Seção de Itens Manuais
-                const itensManuals = document.querySelectorAll(".item-section:not(.brise-item-section)");
-                if (itensManuals.length > 0) {
-                    if (yPosition > 230) {
+                // Seção BRISE
+                const numeroBrise = parseInt(document.getElementById("numeroBrise").value) || 0;
+                if (numeroBrise > 0) {
+                    if (yPosition > 220) {
                         doc.addPage();
                         yPosition = 20;
                     }
                     
-                    doc.setFillColor(...accentColor);
-                    doc.rect(20, yPosition, 170, 8, 'F');
-                    doc.setTextColor(255, 255, 255);
-                    doc.setFont("helvetica", "bold");
-                    doc.setFontSize(14);
-                    doc.text(lang.additionalItems, 25, yPosition + 6);
-                    
-                    yPosition += 15;
-                    
-                    itensManuals.forEach((section, index) => {
-                        if (yPosition > 250) {
-                            doc.addPage();
-                            yPosition = 20;
-                        }
-                        
-                        const descricao = section.querySelector(".descricao").value || "";
-                        const quantidade = parseFloat(section.querySelector(".quantidade").value) || 0;
-                        const precoUnitario = parseFloat(section.querySelector(".precoUnitario").value) || 0;
-                        const total = quantidade * precoUnitario;
-                        
-                        doc.setFillColor(248, 255, 248);
-                        doc.roundedRect(20, yPosition, 170, 20, 2, 2, 'F');
-                        
-                        doc.setTextColor(...textColor);
-                        doc.setFont("helvetica", "bold");
-                        doc.setFontSize(12);
-                        doc.text(`${lang.item} ${index + 1}`, 25, yPosition + 8);
-                        
-                        doc.setFont("helvetica", "normal");
-                        doc.setFontSize(10);
-                        doc.text(`${lang.description} ${descricao}`, 25, yPosition + 15);
-                        doc.text(`${lang.quantity} ${quantidade}`, 120, yPosition + 8);
-                        
-                        const currency = currentLanguage === 'en' ? '$' : currentLanguage === 'it' ? '€' : 'R$';
-                        doc.text(`${lang.unitPrice} ${currency} ${precoUnitario.toFixed(2)}`, 120, yPosition + 12);
-                        doc.setFont("helvetica", "bold");
-                        doc.text(`Total: ${currency} ${total.toFixed(2)}`, 120, yPosition + 16);
-                        
-                        yPosition += 30;
-                    });
-                }
-                
-                // Seção de BRISE
-                const itensBrise = document.querySelectorAll(".brise-item-section");
-                if (itensBrise.length > 0) {
-                    if (yPosition > 230) {
-                        doc.addPage();
-                        yPosition = 20;
-                    }
-                    
-                    doc.setFillColor(...accentColor);
+                    // Título da seção BRISE
+                    doc.setFillColor(243, 156, 18); // cor laranja para BRISE
                     doc.rect(20, yPosition, 170, 8, 'F');
                     doc.setTextColor(255, 255, 255);
                     doc.setFont("helvetica", "bold");
@@ -876,7 +850,7 @@
                     
                     yPosition += 15;
                     
-                    itensBrise.forEach((section, index) => {
+                    document.querySelectorAll(".brise-item-section").forEach((section, index) => {
                         if (yPosition > 250) {
                             doc.addPage();
                             yPosition = 20;
@@ -884,10 +858,11 @@
                         
                         const cor = section.querySelector(".briseCor").value || "";
                         const m2 = parseFloat(section.querySelector(".briseM2").value) || 0;
-                        const precoTotal = parseFloat(section.querySelector(".precoTotalBrise").value) || 0;
+                        const valor = parseFloat(section.querySelector(".briseValor").value) || 0;
                         const observacoes = section.querySelector(".briseObservacoes").value || "";
                         
-                        doc.setFillColor(255, 248, 225);
+                        // Card do BRISE
+                        doc.setFillColor(254, 249, 231); // fundo claro laranja
                         doc.roundedRect(20, yPosition, 170, 25, 2, 2, 'F');
                         
                         doc.setTextColor(...textColor);
@@ -902,7 +877,7 @@
                         
                         const currency = currentLanguage === 'en' ? '$' : currentLanguage === 'it' ? '€' : 'R$';
                         doc.setFont("helvetica", "bold");
-                        doc.text(`${lang.totalPrice} ${currency} ${precoTotal.toFixed(2)}`, 120, yPosition + 15);
+                        doc.text(`${lang.value} ${currency} ${valor.toFixed(2)}`, 120, yPosition + 15);
                         
                         if (observacoes) {
                             doc.setFont("helvetica", "italic");
@@ -915,45 +890,101 @@
                     });
                 }
                 
-                // Total Geral com destaque
-                if (yPosition > 250) {
+                // Seção EXTRAS
+                const numeroItensExtras = parseInt(document.getElementById("numeroItensExtras").value) || 0;
+                if (numeroItensExtras > 0) {
+                    if (yPosition > 220) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                    
+                    // Título da seção EXTRAS
+                    doc.setFillColor(...accentColor); // cor cinza para EXTRAS
+                    doc.rect(20, yPosition, 170, 8, 'F');
+                    doc.setTextColor(255, 255, 255);
+                    doc.setFont("helvetica", "bold");
+                    doc.setFontSize(14);
+                    doc.text(lang.extraItems, 25, yPosition + 6);
+                    
+                    yPosition += 15;
+                    
+                    document.querySelectorAll(".extra-item-section").forEach((section, index) => {
+                        if (yPosition > 250) {
+                            doc.addPage();
+                            yPosition = 20;
+                        }
+                        
+                        const tipo = section.querySelector(".extraTipo").value || "";
+                        const quantidade = parseFloat(section.querySelector(".extraQuantidade").value) || 0;
+                        const valor = parseFloat(section.querySelector(".extraValor").value) || 0;
+                        const observacoes = section.querySelector(".extraObservacoes").value || "";
+                        const total = quantidade * valor;
+                        
+                        // Card do EXTRA
+                        doc.setFillColor(250, 250, 250); // fundo claro cinza
+                        doc.roundedRect(20, yPosition, 170, 30, 2, 2, 'F');
+                        
+                        doc.setTextColor(...textColor);
+                        doc.setFont("helvetica", "bold");
+                        doc.setFontSize(12);
+                        doc.text(`${lang.extraItem} ${index + 1}`, 25, yPosition + 8);
+                        
+                        doc.setFont("helvetica", "normal");
+                        doc.setFontSize(10);
+                        doc.text(`${lang.itemType} ${tipo}`, 25, yPosition + 15);
+                        doc.text(`${lang.quantity} ${quantidade}`, 25, yPosition + 20);
+                        
+                        const currency = currentLanguage === 'en' ? '$' : currentLanguage === 'it' ? '€' : 'R$';
+                        doc.text(`${lang.price} ${currency} ${valor.toFixed(2)}`, 25, yPosition + 25);
+                        doc.setFont("helvetica", "bold");
+                        doc.text(`${lang.totalPrice} ${currency} ${total.toFixed(2)}`, 120, yPosition + 20);
+                        
+                        if (observacoes) {
+                            doc.setFont("helvetica", "italic");
+                            doc.setFontSize(9);
+                            doc.text(`${lang.observations} ${observacoes}`, 25, yPosition + 30);
+                            yPosition += 5;
+                        }
+                        
+                        yPosition += 40;
+                    });
+                }
+                
+                // Total Geral
+                if (yPosition > 240) {
                     doc.addPage();
                     yPosition = 20;
                 }
                 
                 yPosition += 10;
                 
+                // Card do total
                 doc.setFillColor(...primaryColor);
                 doc.roundedRect(20, yPosition, 170, 20, 3, 3, 'F');
                 
                 doc.setTextColor(255, 255, 255);
                 doc.setFont("helvetica", "bold");
                 doc.setFontSize(18);
-                const totalGeral = document.getElementById("totalGeral").textContent;
-                doc.text(`${lang.grandTotal} ${totalGeral}`, 105, yPosition + 13, { align: 'center' });
                 
-                // Rodapé moderno
-                yPosition += 30;
-                doc.setTextColor(150, 150, 150);
-                doc.setFont("helvetica", "normal");
-                doc.setFontSize(8);
-                const dataAtual = new Date().toLocaleDateString(currentLanguage === 'pt' ? 'pt-BR' : currentLanguage === 'en' ? 'en-US' : 'it-IT');
-                doc.text(`Gerado em: ${dataAtual}`, 105, yPosition, { align: 'center' });
+                const totalText = document.getElementById("totalGeral").textContent;
+                doc.text(`${lang.grandTotal} ${totalText}`, 105, yPosition + 13, { align: 'center' });
                 
                 // Salvar o PDF
-                doc.save("orcamento.pdf");
+                const nomeArquivo = `orcamento_${pedido.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+                doc.save(nomeArquivo);
                 
             } catch (error) {
-                console.error("Erro ao gerar PDF:", error);
-                alert("Erro ao gerar PDF. Verifique se todos os campos estão preenchidos corretamente.");
+                console.error('Erro ao gerar PDF:', error);
+                alert('Erro ao gerar o PDF. Verifique se todos os campos estão preenchidos corretamente.');
             }
         }
 
-        // Inicialização
-        document.addEventListener("DOMContentLoaded", () => {
-            atualizarPortas();
+        // Inicializar a página
+        window.onload = function() {
             gerarNumeroPedido();
-        });
+            atualizarPortas();
+            calcularTotalGeral();
+        };
     </script>
 </body>
 </html>
